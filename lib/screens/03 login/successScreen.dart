@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 class Success_LoginScreen extends StatefulWidget {
@@ -38,7 +39,7 @@ class _Success_LoginScreenState extends State<Success_LoginScreen> {
                 Spacer(),
                 GestureDetector(
                   onTap: () {
-                    //Get.offAllNamed("/successLogin");
+                    Get.offAllNamed("/first");
                   },
                   child: Container(height: 8.h,width: 100.w,
                     padding: EdgeInsets.symmetric(horizontal: 5.w),
