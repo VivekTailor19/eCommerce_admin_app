@@ -1,7 +1,7 @@
 import 'package:ecommerce_app/screens/01%20splash/splashScreen.dart';
 import 'package:ecommerce_app/screens/03%20login/signInScreen.dart';
 import 'package:ecommerce_app/screens/03%20login/successScreen.dart';
-import 'package:ecommerce_app/screens/04%20first/firstScreen.dart';
+import 'package:ecommerce_app/screens/04%20first/first/firstScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

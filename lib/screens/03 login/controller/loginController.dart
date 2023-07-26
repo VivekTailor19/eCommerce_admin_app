@@ -18,4 +18,6 @@ class LoginController extends GetxController
   }
 
   RxBool checkConditions = false.obs;
+
+
 }
