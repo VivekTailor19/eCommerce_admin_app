@@ -86,12 +86,17 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                 ),
 
-                Container(height: 8.h,width: 100.w,
-                  padding: EdgeInsets.symmetric(horizontal: 5.w),
-                  margin: EdgeInsets.symmetric(vertical: 5.h),
-                  alignment: Alignment.center,
-                  child: Text("Login",style: TextStyle(fontSize: 16.sp,color: Colors.white,fontWeight: FontWeight.bold),),
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(5.h),color: Color(0xff000000)),),
+                GestureDetector(
+                  onTap: () {
+                    Get.offAllNamed("/successLogin");
+                  },
+                  child: Container(height: 8.h,width: 100.w,
+                    padding: EdgeInsets.symmetric(horizontal: 5.w),
+                    margin: EdgeInsets.symmetric(vertical: 5.h),
+                    alignment: Alignment.center,
+                    child: Text("Login",style: TextStyle(fontSize: 16.sp,color: Colors.white,fontWeight: FontWeight.bold),),
+                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(5.h),color: Color(0xff000000)),),
+                ),
 
 
                 Row(mainAxisAlignment: MainAxisAlignment.center,

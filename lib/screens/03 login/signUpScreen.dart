@@ -179,6 +179,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 GestureDetector(
                   onTap: () {
 
+                    Get.toNamed("/signIn");
+
                   },
                   child: Container(
                     height: 8.h,
