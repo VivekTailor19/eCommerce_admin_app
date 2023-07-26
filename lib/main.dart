@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
 import 'firebase_options.dart';
+import 'screens/03 login/signUpScreen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,10 +18,11 @@ Future<void> main() async {
     Sizer(
       builder: (context, orientation, deviceType) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: "/signIn",
+        // initialRoute: "/signIn",
         routes: {
           "/":(p0) => SplashScreen(),
           "/signIn":(p0) => SignInScreen(),
+          "/signUp":(p0) => SignUpScreen(),
         },
       ),
     ),
