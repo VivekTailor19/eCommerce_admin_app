@@ -17,6 +17,7 @@ class _SignInScreenState extends State<SignInScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+
         body: Column(
           children: [
             Text("Welcome !"),
