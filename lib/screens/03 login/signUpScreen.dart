@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/screens/03%20login/controller/loginController.dart';
+import 'package:ecommerce_app/utils/firebase_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -177,9 +178,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ],),
                 ),
                 GestureDetector(
-                  onTap: () {
+                  onTap: () async {
 
-                    Get.toNamed("/signIn");
+                    if(tpassword.text != tcpassword.text)
+                      {
+                        Get.snackbar("Alert", "The Enter Both Password are not matched with eachother. Please kindly check and re-enter the password.",snackStyle: SnackStyle.FLOATING,borderColor: Colors.red.shade300);
+                      }
+                    else
+                      {
+                        String msg = await FirebaseHelper.firebaseHelper.emailSignUp(email: temail.text,password: tpassword.text);
+
+                        if(msg == "Success")
+                        {
+                          temail.clear();
+                          tpassword.clear();
+                          tcpassword.clear();
+
+                          Get.back();
+                        }
+                      }
+
+
+
+
+
+
 
                   },
                   child: Container(

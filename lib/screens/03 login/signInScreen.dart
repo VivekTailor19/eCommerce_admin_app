@@ -1,4 +1,5 @@
 import 'package:ecommerce_app/screens/03%20login/controller/loginController.dart';
+import 'package:ecommerce_app/utils/firebase_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -87,8 +88,26 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
 
                 GestureDetector(
-                  onTap: () {
-                    Get.offAllNamed("/successLogin");
+                  onTap: () async {
+
+                    String msg = await FirebaseHelper.firebaseHelper.emailSignIn(email: temail.text,password: tpassword.text);
+
+                    if(msg == "Success")
+                    {
+                      temail.clear();
+                      tpassword.clear();
+                      Get.offAllNamed("/successLogin");
+                    }
+                    else
+                      {
+                        Get.snackbar("Something is Wrong", "The password is invalid or the user does not have a password.",
+                            snackPosition: SnackPosition.BOTTOM,snackStyle: SnackStyle.FLOATING,
+                            duration: Duration(seconds: 1),
+                          borderColor: Colors.red,
+                        );
+                      }
+
+
                   },
                   child: Container(height: 8.h,width: 100.w,
                     padding: EdgeInsets.symmetric(horizontal: 5.w),

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
@@ -15,7 +16,7 @@ class _Success_LoginScreenState extends State<Success_LoginScreen> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 5.w,vertical: 7.h),
+          padding:  EdgeInsets.symmetric(horizontal: 5.w,),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -48,6 +49,19 @@ class _Success_LoginScreenState extends State<Success_LoginScreen> {
                     child: Text("Start",style: TextStyle(fontSize: 18.sp,color: Colors.white,fontWeight: FontWeight.bold),),
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(5.h),color: Color(0xff000000)),),
                 ),
+
+                Row(mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("To SignOut from this Account ? ",style: TextStyle(fontWeight: FontWeight.w200,fontSize: 12.sp),),
+
+                    TextButton(onPressed: () async {
+                      await FirebaseAuth.instance.signOut();
+                      Get.offAllNamed("/signIn");
+                    }, child: Text("Sign Out",style: TextStyle(color: Colors.blue,fontWeight: FontWeight.w400,fontSize: 14.sp),))
+                  ],
+                )
+
+
               ],
             ),
           ),
@@ -56,3 +70,4 @@ class _Success_LoginScreenState extends State<Success_LoginScreen> {
     );
   }
 }
+
