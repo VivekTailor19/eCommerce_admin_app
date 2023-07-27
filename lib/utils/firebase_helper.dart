@@ -56,6 +56,11 @@ class FirebaseHelper
 
   }
 
+  void readProductsFromFireStore()
+  {
+    
+  }
+
 
 
 }
