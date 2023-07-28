@@ -6,11 +6,11 @@ class ProductController extends GetxController
   RxBool isAdded = false.obs;
 
   List<String> categoryList = [
+    "Electronics",
     "Clothes",
     "Shoes",
     "Kids",
     "Fitness",
-    "Electronics",
     "Sports"
   ];
 

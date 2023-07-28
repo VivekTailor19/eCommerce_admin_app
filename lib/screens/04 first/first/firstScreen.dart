@@ -51,11 +51,11 @@ class _FirstScreenState extends State<FirstScreen> {
               },
 
               showUnselectedLabels: false,
-              unselectedIconTheme: IconThemeData(color: Colors.black45,size: 25.sp,),
-              selectedIconTheme: IconThemeData(color: Colors.black,size: 25.sp,),
+              unselectedIconTheme: IconThemeData(color: Colors.black45,size: 18.sp,),
+              selectedIconTheme: IconThemeData(color: Colors.black,size: 20.sp,),
               selectedLabelStyle: TextStyle(fontWeight: FontWeight.w400,),
               selectedItemColor: Colors.black,
-              selectedFontSize: 14.sp,
+              selectedFontSize: 12.sp,
               items: [
                 BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
                 BottomNavigationBarItem(icon: Icon(Icons.shopping_cart),label: "Order"),
