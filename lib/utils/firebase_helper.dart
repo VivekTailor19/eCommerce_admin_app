@@ -56,11 +56,32 @@ class FirebaseHelper
 
   }
 
-  void readProductsFromFireStore()
+  Stream<QuerySnapshot<Map<String, dynamic>>> readProductsFromFireStore(String category)
   {
-    
+    String tempCategory = category;
+    print("tempCategory ===>>>>>>>>>>>>>>>>>>>>   $tempCategory");
+    return firestore.collection("ProductList").doc("Categories").collection(tempCategory).snapshots();
   }
 
+  void deleteProductItem(ProductModel model)
+  {
+    String tempCategory = model.category!;
+    firestore.collection("ProductList").doc("Categories").collection(tempCategory).doc(model.uId).delete();
+  }
 
+  void updateProductInFireStore(ProductModel model) {
+    String tempCategory = model.category!;
+    String tempId = model.uId!;
+    firestore.collection("ProductList").doc("Categories").collection(tempCategory).doc(tempId).set(
+        {
+          "pname": model.name,
+          "pprice": model.price,
+          "pdesc": model.desc,
+          "pimg": model.img,
+          "pcategory": model.category,
+          "pfav": model.fav,
+        }
+    );
+  }
 
 }

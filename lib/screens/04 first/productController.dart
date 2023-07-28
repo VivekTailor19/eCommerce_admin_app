@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AddProductController extends GetxController
+class ProductController extends GetxController
 {
   RxBool isAdded = false.obs;
 
@@ -14,4 +15,9 @@ class AddProductController extends GetxController
   ];
 
   RxString selCategory = "".obs;
+
+  RxString filterCategory = "Electronics".obs;
+  RxInt selFilterIndexCategory = 0.obs;
+
+
 }

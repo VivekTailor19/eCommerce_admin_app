@@ -29,7 +29,11 @@ class _FirstScreenState extends State<FirstScreen> {
               elevation: 0,
               child: Icon(Icons.add_rounded,size: 23.sp,),
               onPressed: () {
-                Get.toNamed("/addProduct");
+                Get.toNamed("/addProduct",
+                arguments: {
+                  "status":"add",
+                  "model":null
+                });
               }
             ),
           ),

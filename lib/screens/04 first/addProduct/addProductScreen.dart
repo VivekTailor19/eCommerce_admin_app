@@ -1,5 +1,5 @@
 import 'package:ecommerce_app/model/productModel.dart';
-import 'package:ecommerce_app/screens/04%20first/addProduct/addProductController.dart';
+import 'package:ecommerce_app/screens/04%20first/productController.dart';
 import 'package:ecommerce_app/utils/firebase_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,17 +18,64 @@ class _AddProductScreenState extends State<AddProductScreen> {
   TextEditingController timgLink = TextEditingController();
   TextEditingController tprice = TextEditingController();
 
-  AddProductController p_control = Get.put(AddProductController());
+  String id = "" ;
+
+  ProductController p_control = Get.put(ProductController());
+
+  Map mapData = {};
+  ProductModel productModel = ProductModel();
+  @override
+  void initState() {
+    super.initState();
+
+    mapData = Get.arguments;
+
+    if(mapData['status'] == 'update')
+    {
+      productModel = mapData['model'];
+      tname = TextEditingController(text: productModel.name);
+      tprice = TextEditingController(text: "${productModel.price}");
+      tdesc = TextEditingController(text: productModel.desc);
+      timgLink = TextEditingController(text: productModel.img);
+      p_control.selCategory.value = productModel.category!;
+      p_control.isAdded.value = true;
+      id = productModel.uId!;
+    }
+    else
+      {
+        p_control.isAdded.value = false;
+        p_control.selCategory.value = "";
+      }
+  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Add Product"),
+          leading: IconButton(
+            icon:Icon(Icons.arrow_back_rounded,size: 25.sp,),
+            onPressed: () {
+              p_control.isAdded.value = false;
+              Get.back();
+              },
+
+          ),
+          title: Text(mapData['status'] == 'update' ? "Update Product" : "Add Product"),
           centerTitle: true,
           elevation: 0,
           backgroundColor: Colors.black,
+
+          actions: [
+            Visibility(
+              visible: mapData['status'] == 'update' ? true : false,
+              child: IconButton(onPressed: () {
+                FirebaseHelper.firebaseHelper.deleteProductItem(productModel);
+                p_control.selCategory.value = "";
+                Get.back();
+              }, icon: Icon(Icons.delete_rounded,size: 20.sp,color: Colors.white,)),
+            )
+          ],
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 5.w),
@@ -122,7 +169,9 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 ),
                 SizedBox(height: 2.h),
                 CustomTextField(controller: tname, hint: "Name", kboard: TextInputType.text),
-                Obx(
+                mapData['status'] == 'update'
+                    ? Container()
+                    :  Obx(
                       () =>
                       Container(
                         height: 8.h,
@@ -192,6 +241,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
 
                 GestureDetector(
                   onTap: () {
+
                     ProductModel model = ProductModel(
                       name: tname.text,
                       category: p_control.selCategory.value,
@@ -199,9 +249,13 @@ class _AddProductScreenState extends State<AddProductScreen> {
                       img: timgLink.text,
                       desc: tdesc.text,
                       price: int.parse(tprice.text),
+                      uId: id,
                     );
 
-                    FirebaseHelper.firebaseHelper.addProductInFireStore(model);
+                    mapData['status'] == 'update'
+                        ? FirebaseHelper.firebaseHelper.updateProductInFireStore(model)
+                        : FirebaseHelper.firebaseHelper.addProductInFireStore(model);
+
 
                     tname.clear();
                     tdesc.clear();
@@ -214,8 +268,12 @@ class _AddProductScreenState extends State<AddProductScreen> {
 
                     print("product is add in fire cloud store");
 
-                    Get.snackbar('Product Added',
-                        "Your Product is added in The Firebase CloudStore",
+                    Get.snackbar(
+                        mapData['status'] == 'update'? 'Update' :'Product Added',
+
+                        mapData['status'] == 'update'
+                            ? "Your Product is updated in The Firebase CloudStore"
+                            : "Your Product is added in The Firebase CloudStore",
                         snackPosition: SnackPosition.BOTTOM,
                         duration: Duration(seconds: 2));
                   },
@@ -227,7 +285,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                         color: Colors.black),
                     alignment: Alignment.center,
 
-                    child: Text("Add", style: TextStyle(color: Colors.white,
+                    child: Text(mapData['status'] == 'update' ? "Update" : "Add", style: TextStyle(color: Colors.white,
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w400),),
                   ),
