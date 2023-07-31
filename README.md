@@ -26,7 +26,7 @@ https://github.com/VivekTailor19/ecommerce_app/assets/119835214/a00ba363-5103-40
 
 </p>
 <p>
-The customer app project (<h3>fashion_forword</h3>) link is as below : 
+The customer app project (<b>fashion_forword</b>) link is as below : 
 https://github.com/VivekTailor19/fashion_forward.git
   
 </p>
