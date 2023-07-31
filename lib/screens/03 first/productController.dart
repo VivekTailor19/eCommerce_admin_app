@@ -10,7 +10,6 @@ class ProductController extends GetxController
     "Clothes",
     "Shoes",
     "Kids",
-    "Fitness",
     "Sports"
   ];
 

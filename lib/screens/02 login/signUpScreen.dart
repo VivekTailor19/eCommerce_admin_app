@@ -1,8 +1,9 @@
-import 'package:ecommerce_app/screens/03%20login/controller/loginController.dart';
 import 'package:ecommerce_app/utils/firebase_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
+import 'controller/loginController.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});

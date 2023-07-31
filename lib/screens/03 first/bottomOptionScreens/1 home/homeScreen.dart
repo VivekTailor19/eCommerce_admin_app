@@ -1,11 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ecommerce_app/model/productModel.dart';
-import 'package:ecommerce_app/screens/04%20first/productController.dart';
+import 'package:ecommerce_app/screens/03%20first/first/firstController.dart';
 import 'package:ecommerce_app/utils/firebase_helper.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
+import '../../productController.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -17,6 +18,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   ProductController p_control = Get.put(ProductController());
+  FirstController f_control = Get.put(FirstController());
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -32,10 +35,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     Icons.grid_view_rounded,
                     size: 25.sp,
                   ),
-                  CircleAvatar(
-                    radius: 2.5.h,
-                    backgroundImage:
-                        AssetImage("assets/images/splash/splash.jpg"),
+                  GestureDetector(
+                    onTap: () {
+                      f_control.bottomIndex.value = 3;
+                      Get.offAllNamed("/first");
+                    },
+                    child: CircleAvatar(
+                      radius: 2.5.h,
+                      backgroundImage:
+                          NetworkImage("https://miro.medium.com/v2/resize:fit:512/1*DubdXbUR4KcrzmAg8wyGXA.png"),
+                    ),
                   )
                 ],
               ),
@@ -182,55 +191,43 @@ class _HomeScreenState extends State<HomeScreen> {
                             width: 40.w,
                             alignment: Alignment.topCenter,
                             margin: EdgeInsets.only(top: 1.5.h, left: 5.w),
-                            child: Stack(
+                            child: Column(
                               children: [
-                                Column(
-                                  children: [
-                                    Container(
-                                      height: 22.h,
-                                      width: 45.w,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5.w),
-                                        color: Color(0xfff3f4f6),
-                                        image: DecorationImage(
-                                            image: NetworkImage(
-                                                "${productItems[index].img}"),
-                                            fit: BoxFit.contain),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 1.h,
-                                    ),
-                                    Text(
-                                      "${productItems[index].name}",
-                                      style: TextStyle(
-                                          fontSize: 12.5.sp, fontWeight: FontWeight.w600),
-                                      textAlign: TextAlign.center,
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.symmetric(vertical: 0.5.h),
-                                      child: Text("${productItems[index].category}",
-                                          style: TextStyle(
-                                              fontSize: 10.sp, fontWeight: FontWeight.w300),
-                                          textAlign: TextAlign.center,
-                                          overflow: TextOverflow.ellipsis),
-                                    ),
-                                    Text("\$ ${productItems[index].price}",
-                                        style: TextStyle(
-                                            fontSize: 14.sp, fontWeight: FontWeight.w500),
-                                        textAlign: TextAlign.center,
-                                        overflow: TextOverflow.ellipsis),
-                                  ],
-                                ),
-                                Align(
-                                  alignment: Alignment(0.9,-0.95),
-                                  child: CircleAvatar(
-                                    radius: 1.5.h,
-                                    backgroundColor: Colors.black,
-                                    child: Icon(Icons.favorite_border_rounded,size:16,color: Colors.white,),
+                                Container(
+                                  height: 22.h,
+                                  width: 45.w,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5.w),
+                                    color: Color(0xfff3f4f6),
+                                    image: DecorationImage(
+                                        image: NetworkImage(
+                                            "${productItems[index].img}"),
+                                        fit: BoxFit.contain),
                                   ),
-                                )
+                                ),
+                                SizedBox(
+                                  height: 1.h,
+                                ),
+                                Text(
+                                  "${productItems[index].name}",
+                                  style: TextStyle(
+                                      fontSize: 12.5.sp, fontWeight: FontWeight.w600),
+                                  textAlign: TextAlign.center,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 0.5.h),
+                                  child: Text("${productItems[index].category}",
+                                      style: TextStyle(
+                                          fontSize: 10.sp, fontWeight: FontWeight.w300),
+                                      textAlign: TextAlign.center,
+                                      overflow: TextOverflow.ellipsis),
+                                ),
+                                Text("\$ ${productItems[index].price}",
+                                    style: TextStyle(
+                                        fontSize: 14.sp, fontWeight: FontWeight.w500),
+                                    textAlign: TextAlign.center,
+                                    overflow: TextOverflow.ellipsis),
                               ],
                             ),
                           ),

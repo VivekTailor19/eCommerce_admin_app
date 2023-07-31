@@ -1,9 +1,10 @@
 import 'package:ecommerce_app/model/productModel.dart';
-import 'package:ecommerce_app/screens/04%20first/productController.dart';
 import 'package:ecommerce_app/utils/firebase_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
+import '../productController.dart';
 
 class AddProductScreen extends StatefulWidget {
   const AddProductScreen({super.key});

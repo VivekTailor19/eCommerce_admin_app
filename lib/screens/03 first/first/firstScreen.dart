@@ -1,8 +1,9 @@
-import 'package:ecommerce_app/screens/04%20first/first/firstController.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+
+import '../../../utils/firebase_helper.dart';
+import 'firstController.dart';
 
 
 class FirstScreen extends StatefulWidget {
@@ -15,6 +16,7 @@ class FirstScreen extends StatefulWidget {
 class _FirstScreenState extends State<FirstScreen> {
 
   FirstController f_control = Get.put(FirstController());
+
 
   @override
   Widget build(BuildContext context) {

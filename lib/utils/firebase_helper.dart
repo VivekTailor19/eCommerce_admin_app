@@ -11,6 +11,28 @@ class FirebaseHelper
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
 //==========================================================================
+// =======================   User  =========================================
+
+  bool check_user()
+  {
+    User? user=auth.currentUser;
+    return user!=null;
+  }
+
+  Map<String, String?> readUser()
+  {
+    User? user = auth.currentUser;
+
+    return {
+      'email':user!.email,
+      'name':user.displayName,
+      'photo':user.photoURL
+    };
+  }
+
+
+
+//==========================================================================
 // =====================   Login  =========================================
 
   Future<String> emailSignUp({email,password})
