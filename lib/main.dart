@@ -22,7 +22,7 @@ Future<void> main() async {
         debugShowCheckedModeBanner: false,
         routes: {
           "/":(p0) => SplashScreen(),
-          // "/":(p0) => FirstScreen(),
+
           "/signIn":(p0) => SignInScreen(),
           "/signUp":(p0) => SignUpScreen(),
           "/successLogin":(p0) => Success_LoginScreen(),
@@ -35,3 +35,10 @@ Future<void> main() async {
   );
 }
 
+/*
+
+dummy data add in notification and order details        ----
+
+dummy data add in product
+
+ */

@@ -87,7 +87,7 @@ class _OrderScreenState extends State<OrderScreen> {
 }
 
 
-Widget OrderTile()
+Widget OrderTile({customerName,customerImg,totalBuy,price})
 {
   return Container(height: 15.h,width: 100.w,
       margin: EdgeInsets.symmetric(vertical: 1.5.h),
@@ -107,30 +107,40 @@ Widget OrderTile()
                 borderRadius: BorderRadius.circular(4.w),
 
                 image:DecorationImage(
-                    image: NetworkImage("https://cdn-icons-png.flaticon.com/512/5511/5511396.png"),fit: BoxFit.contain
+                    image: NetworkImage("$customerImg"),fit: BoxFit.contain
                 )
 
             ),
           ),
           SizedBox(width: 2.w,),
-          SizedBox(width: 35.w,
+          SizedBox(width: 46.w,
             child: Column(
 
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 1.h,),
-                Text("Soludos",style: TextStyle(fontWeight: FontWeight.w500,fontSize: 14.sp),),
-                SizedBox(height: 0.5.h,),
-                Text("Ibiza Classic LAce Sneakers",style: TextStyle(fontWeight: FontWeight.w200,fontSize: 11.sp),maxLines: 2,),
-                Spacer(),
+                SizedBox(width: 80.w,
+                  child: Text.rich(
+                    TextSpan(
+                      style: TextStyle(fontSize: 18), // default text style
+                      children: <TextSpan>[
+                        TextSpan(text: '$customerName ', style: TextStyle(fontWeight: FontWeight.w600,fontSize: 13.sp)),
+                        TextSpan(text: 'shopped from an ecommerce app and bought $totalBuy items. They received an email with the confirmation and order details.',
+                            style: TextStyle(fontWeight: FontWeight.w300,fontSize: 10.sp)),
+                      ],
+                    ),
+                  ),
+                ),
 
-                Text("Quantity: 3",style: TextStyle(fontWeight: FontWeight.w300,fontSize: 12.sp),),
+
+
+                Text("Order: $totalBuy ( Item )",style: TextStyle(fontWeight: FontWeight.w400,fontSize: 12.sp),),
                 SizedBox(height: 1.h,)
               ],
             ),
           ),
           Spacer(),
-          Text("\$ 120.00",style: TextStyle(fontWeight: FontWeight.w700,fontSize: 13.sp,wordSpacing: -1,letterSpacing: -0.5),)
+          Text("\$ $price",style: TextStyle(fontWeight: FontWeight.w700,fontSize: 13.sp,wordSpacing: -1,letterSpacing: -0.5),)
         ],
       )
   );
