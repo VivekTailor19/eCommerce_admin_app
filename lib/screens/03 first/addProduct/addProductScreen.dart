@@ -243,6 +243,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 GestureDetector(
                   onTap: () {
 
+
                     ProductModel model = ProductModel(
                       name: tname.text,
                       category: p_control.selCategory.value,

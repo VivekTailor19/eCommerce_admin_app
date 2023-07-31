@@ -22,7 +22,6 @@ Future<void> main() async {
         debugShowCheckedModeBanner: false,
         routes: {
           "/":(p0) => SplashScreen(),
-
           "/signIn":(p0) => SignInScreen(),
           "/signUp":(p0) => SignUpScreen(),
           "/successLogin":(p0) => Success_LoginScreen(),
