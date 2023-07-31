@@ -1,16 +1,22 @@
 # ecommerce_app
+## eCommerce flutter App using firebase
+This is the admin App. Through this app admin can add , delete, update products in Firestore Database as the login system used Firebase Email Authentication.
 
-eCommerce flutter App using firebase
+<p>
 
-## Getting Started
+<img src = "https://github.com/VivekTailor19/ecommerce_app/assets/119835214/367a0cbb-bdfe-47af-9874-5c3127f6ad0e" height="50%" width="30%">
+<img src = "https://github.com/VivekTailor19/ecommerce_app/assets/119835214/287ab037-d219-43bd-b7f9-6bf0ffde503c" height="50%" width="30%">
+<img src = "https://github.com/VivekTailor19/ecommerce_app/assets/119835214/88175cab-9ee9-41b5-88e0-c8e7cc7de0f1" height="50%" width="30%">
+<img src = "https://github.com/VivekTailor19/ecommerce_app/assets/119835214/42a80b6e-ef4c-4567-b493-cd1b050eea6e" height="50%" width="30%">
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src = "" height="50%" width="30%">
+  
+</p>
+
+The customer app project (project Name) link is as below : 
+////////////////////////link /////////////////////////////////
+
+
