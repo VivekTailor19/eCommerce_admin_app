@@ -4,6 +4,9 @@ This is the admin App. Through this app, admin can add , delete & update product
 Also the login system used Firebase Email Authentication.
 
 
+The customer app project (<b>fashion_forword</b>) link is as follow : - [fasion_forword](https://github.com/VivekTailor19/fashion_forward.git) -
+
+
 https://github.com/VivekTailor19/ecommerce_app/assets/119835214/a00ba363-5103-40de-8753-d87b1484a169
 
 <p>
@@ -25,9 +28,4 @@ https://github.com/VivekTailor19/ecommerce_app/assets/119835214/a00ba363-5103-40
 
 
 </p>
-
-The customer app project (<b>fashion_forword</b>) link is as below : 
--  [fasion_forword](https://github.com/VivekTailor19/fashion_forward.git)
-
-
 
